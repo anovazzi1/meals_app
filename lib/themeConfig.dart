@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 final ThemeData theme = ThemeData(
   primarySwatch: Colors.pink,
-  canvasColor: Colors.black,
+  canvasColor: Colors.white,
   fontFamily: 'Raleway',
   textTheme: ThemeData.light().textTheme.copyWith(
         bodyText1: const TextStyle(color: Colors.black54),

@@ -9,7 +9,6 @@ class Meal {
   final List<String> steps;
   final int duration;
   final Complexity complexity;
-  final
   final bool isVegetarian;
 
   const Meal(

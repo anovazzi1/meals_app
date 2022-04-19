@@ -5,19 +5,17 @@ class MealDetailScreen extends StatelessWidget {
   static const mealRoute = '/mealDetail';
   const MealDetailScreen({Key? key}) : super(key: key);
 
-  Widget buildSteps(BuildContext context,Widget child)
-  {
+  Widget buildSteps(BuildContext context, Widget child) {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white38,
-          border: Border.all(color: Colors.black45,width: 2.0),
+          border: Border.all(color: Colors.black45, width: 2.0),
           borderRadius: BorderRadius.circular(10)),
       height: 200,
       width: MediaQuery.of(context).size.width * 0.8,
       child: child,
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +46,8 @@ class MealDetailScreen extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white38,
-                  border: Border.all(color: Colors.black45,width: 2.0),
+                  color: Colors.white38,
+                  border: Border.all(color: Colors.black45, width: 2.0),
                   borderRadius: BorderRadius.circular(10)),
               height: 200,
               width: MediaQuery.of(context).size.width * 0.8,
@@ -68,13 +66,24 @@ class MealDetailScreen extends StatelessWidget {
                 itemCount: selectedMeal.ingredients.length,
               ),
             ),
-        Container(
-          child: Text('Steps',
-              style: Theme.of(context).textTheme.headline6),
-        ),
-            buildSteps(context, ListView.builder(itemBuilder: (context,index){
-              return ListTile(leading: CircleAvatar(child: Text("${index+1}"),),title: Text("${selectedMeal.steps[index]}"),);
-            },itemCount: selectedMeal.steps.length,),)
+            Container(
+              child:
+                  Text('Steps', style: Theme.of(context).textTheme.headline6),
+            ),
+            buildSteps(
+              context,
+              ListView.builder(
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      child: Text("${index + 1}"),
+                    ),
+                    title: Text("${selectedMeal.steps[index]}"),
+                  );
+                },
+                itemCount: selectedMeal.steps.length,
+              ),
+            )
           ],
         ),
       ),

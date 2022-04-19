@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
+
+import 'meal_item.dart';
+import 'models/meal.dart';
 class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({Key? key}) : super(key: key);
+  final List<Meal> favorites;
+  const FavoritesScreen(this.favorites, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("test"),);
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return MealItem(
+            favorites[index].title,
+            favorites[index].imageUrl,
+            favorites[index].duration,
+            favorites[index].complexity,
+            favorites[index].id);
+      },
+      itemCount: favorites.length,
+    );
   }
 }

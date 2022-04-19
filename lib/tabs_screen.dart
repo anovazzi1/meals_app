@@ -3,9 +3,11 @@ import 'package:meals_app/categories_screen.dart';
 import 'package:meals_app/main_drawer.dart';
 
 import 'favorite_screen.dart';
+import 'models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({Key? key}) : super(key: key);
+  final List<Meal> favorites;
+  const TabsScreen(this.favorites,{Key? key}) : super(key: key);
 
   @override
   _TabsScreenState createState() => _TabsScreenState();
@@ -34,7 +36,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
           body: TabBarView(children: [
             CategoriesScreen(),
-            FavoritesScreen()
+            FavoritesScreen(widget.favorites)
           ],),
         drawer: MainDrawer(),
         ),
